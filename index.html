@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi-recherche (beta)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Multi-recherche — Nom / Société (beta)</h1>
+      <p class="hint">Entrez un <strong>nom de personne</strong> ou une <strong>raison sociale</strong>. Optionnel : une ville / code postal pour affiner.</p>
+
+      <div class="grid g2">
+        <div>
+          <label class="small">Nom / Raison sociale</label>
+          <input id="q" type="text" placeholder="ex. Jean Dupont • ex. Boulangerie Martin • " />
+        </div>
+        <div>
+          <label class="small">Ville / Code postal (optionnel)</label>
+          <input id="loc" type="text" placeholder="ex. Lyon • 75015 • Bordeaux" />
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:10px">
+        <label class="chip"><input type="radio" name="type" value="auto" checked> Auto</label>
+        <label class="chip"><input type="radio" name="type" value="personne"> Personne</label>
+        <label class="chip"><input type="radio" name="type" value="societe"> Société</label>
+        <label class="chip"><input id="stagger" type="checkbox" checked> Ouvrir progressivement (évite les bloqueurs)</label>
+      </div>
+
+      <fieldset style="margin-top:14px">
+        <legend>Sites à ouvrir</legend>
+        <div class="sites">
+          <label class="chip"><input class="site" type="checkbox" data-key="google" checked> Google</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="maps"> Google Maps</label>
+
+          <label class="chip"><input class="site" type="checkbox" data-key="pjPro" checked> PagesJaunes (pros)</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="pjBlanches"> PagesBlanches (particuliers)</label>
+
+          <label class="chip"><input class="site" type="checkbox" data-key="societe" checked> Societe.com</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="pappers" checked> Pappers</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="annuaireAdm"> Annuaire des Entreprises</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="bodacc"> BODACC</label>
+
+          <label class="chip"><input class="site" type="checkbox" data-key="linkedin"> LinkedIn</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="facebook"> Facebook</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="twitter"> X / Twitter</label>
+        </div>
+      </fieldset>
+
+      <div class="btns">
+        <button class="primary" id="go">🔎 Rechercher (ouvrir les onglets)</button>
+        <button class="ghost" id="copy">📋 Copier toutes les URLs</button>
+        <span class="small">Astuce : <kbd>Entrée</kbd> lance la recherche.</span>
+      </div>
+
+      <div class="footer">
+        <p>Une suggestion ? envoi un mail à kevin.smagghe.dev@gmail.com 😉</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
