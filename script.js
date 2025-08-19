@@ -45,12 +45,6 @@ const builders = {
     `https://twitter.com/search?q=${encodeURIComponent(q + (loc ? " " + loc : ""))}&src=typed_query`,
 };
 
-// ---------- Détection SIREN/SIRET ----------
-function looksLikeSirenOrSiret(txt) {
-  const digits = (txt || "").replace(/\D/g, "");
-  return digits.length === 9 || digits.length === 14;
-}
-
 // ---------- Lecture du formulaire ----------
 function payload() {
   const q = $("#q").value.trim();
@@ -60,35 +54,22 @@ function payload() {
     alert("Entrez un nom ou une raison sociale.");
     return null;
   }
-  // Suggestions auto selon le contexte
-  const suggested = new Set();
-  if (type === "societe" || looksLikeSirenOrSiret(q)) {
-    suggested.add("societe");
-    suggested.add("pappers");
-  }
-  if (type === "personne") {
-    suggested.add("pjBlanches");
-  }
-  return { q, loc, type, suggested };
+
+  return { q, loc,};
 }
 
 // ---------- Gestion des sites cochés ----------
-function selectedSites(suggested) {
-  const picks = $$(".site")
+function selectedSites() {
+  return $$(".site")
     .filter(c => c.checked)
     .map(c => c.dataset.key);
-  // S'assurer que les suggestions sont incluses
-  suggested.forEach(k => {
-    if (!picks.includes(k)) picks.unshift(k);
-  });
-  return picks;
 }
 
 // ---------- Construction des URLs ----------
 function buildUrls() {
   const data = payload();
   if (!data) return [];
-  const picks = selectedSites(data.suggested);
+  const picks = selectedSites();
   return picks
     .map(k => (builders[k] ? builders[k]({ q: data.q, loc: data.loc }) : null))
     .filter(Boolean);
@@ -101,39 +82,12 @@ function openAll(urls) {
   urls.forEach((u, i) => setTimeout(() => window.open(u, "_blank", "noopener"), i * step));
 }
 
-// ---------- Persistance locale ----------
-function restorePrefs() {
-  const q = localStorage.getItem("mr_q");
-  if (q) $("#q").value = q;
-  const l = localStorage.getItem("mr_loc");
-  if (l) $("#loc").value = l;
-  try {
-    const sites = JSON.parse(localStorage.getItem("mr_sites") || "[]");
-    sites.forEach(({ k, v }) => {
-      const el = $(`.site[data-key="${k}"]`);
-      if (el) el.checked = !!v;
-    });
-  } catch (e) {
-    // ignore
-  }
-}
-
-function savePrefs() {
-  localStorage.setItem("mr_q", $("#q").value);
-  localStorage.setItem("mr_loc", $("#loc").value);
-  localStorage.setItem(
-    "mr_sites",
-    JSON.stringify($$(".site").map(c => ({ k: c.dataset.key, v: c.checked })))
-  );
-}
-
 // ---------- Wire-up des événements ----------
 function wireEvents() {
   $("#go").addEventListener("click", () => {
     const urls = buildUrls();
     if (urls.length === 0) return;
     openAll(urls);
-    savePrefs();
   });
 
   $("#copy").addEventListener("click", async () => {
@@ -144,7 +98,6 @@ function wireEvents() {
       await navigator.clipboard.writeText(text);
       alert(`✅ ${urls.length} URL copiées dans le presse-papiers.`);
     } catch {
-      // fallback si clipboard non dispo
       const ta = document.createElement("textarea");
       ta.value = text;
       document.body.appendChild(ta);
@@ -162,6 +115,5 @@ function wireEvents() {
 
 // ---------- Init ----------
 document.addEventListener("DOMContentLoaded", () => {
-  restorePrefs();
   wireEvents();
 });

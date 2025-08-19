@@ -3,30 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Multi-recherche (beta)</title>
+  <title>Multi-recherche</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="wrap">
     <div class="card">
-      <h1>Multi-recherche (Version test)</h1>
+      <h1>Multi-recherche (BETA)</h1>
       <p class="hint">Entrez un <strong>nom de personne</strong> ou une <strong>raison sociale</strong>. Optionnel : une ville / code postal pour affiner.</p>
+      <p class="hint">🚨Lors de la première utilisation, il est fort probable que vous deviez autoriser ce site à afficher des fenêtres pop-up</p>
 
       <div class="grid g2">
         <div>
-          <label class="small">Nom / Raison sociale</label>
-          <input id="q" type="text" placeholder="ex. Jean Dupont • ex. Boulangerie Martin • " />
+          <label class="small" for="q">Nom / Raison sociale</label>
+          <input id="q" name="q" type="text" placeholder="ex. Jean Dupont • ex. Boulangerie Martin • " />
         </div>
         <div>
-          <label class="small">Ville / Code postal (optionnel)</label>
-          <input id="loc" type="text" placeholder="ex. Lyon • 75015 • Bordeaux" />
+          <label class="small" for="loc">Ville / Code postal (optionnel)</label>
+          <input id="loc" name="loc" type="text" placeholder="ex. Lyon • 75015 • Bordeaux" />
         </div>
       </div>
 
       <div class="row" style="margin-top:10px">
-        <label class="chip"><input type="radio" name="type" value="auto" checked> Auto</label>
-        <label class="chip"><input type="radio" name="type" value="personne"> Personne</label>
-        <label class="chip"><input type="radio" name="type" value="societe"> Société</label>
         <label class="chip"><input id="stagger" type="checkbox" checked> Ouvrir progressivement les onglets (recommandé)</label>
       </div>
 
@@ -34,15 +32,15 @@
         <legend>Sites à ouvrir</legend>
         <div class="sites">
           <label class="chip"><input class="site" type="checkbox" data-key="google" checked> Google</label>
-          <label class="chip"><input class="site" type="checkbox" data-key="maps"> Google Maps</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="maps"checked> Google Maps</label>
 
           <label class="chip"><input class="site" type="checkbox" data-key="pjPro" checked> PagesJaunes </label>
-          <label class="chip"><input class="site" type="checkbox" data-key="pjBlanches"> PagesBlanches </label>
+          <label class="chip"><input class="site" type="checkbox" data-key="pjBlanches"checked> PagesBlanches </label>
 
           <label class="chip"><input class="site" type="checkbox" data-key="societe" checked> Societe.com</label>
           <label class="chip"><input class="site" type="checkbox" data-key="pappers" checked> Pappers</label>
-          <label class="chip"><input class="site" type="checkbox" data-key="annuaireAdm"> Annuaire des Entreprises</label>
-          <label class="chip"><input class="site" type="checkbox" data-key="bodacc"> BODACC</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="annuaireAdm"checked> Annuaire des Entreprises</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="bodacc"checked> BODACC</label>
 
           <label class="chip"><input class="site" type="checkbox" data-key="linkedin"> LinkedIn</label>
           <label class="chip"><input class="site" type="checkbox" data-key="facebook"> Facebook</label>
@@ -57,7 +55,8 @@
       </div>
 
       <div class="footer">
-        <p>Une suggestion ? envoi un mail à kevin.smagghe.dev@gmail.com 😉</p>
+        <p>Une suggestion ? Envoi un mail à kevin.smagghe.dev@gmail.com 😉</p>
+        <p>Derniere MAJ le 19/08/2025</p>
       </div>
     </div>
   </div>
