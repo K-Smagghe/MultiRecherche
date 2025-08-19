@@ -3,50 +3,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Multi-recherche (beta)</title>
+  <title>L’Annuaire Express</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="wrap">
+  <div class="wrap" role="main">
     <div class="card">
-      <h1>Multi-recherche — Nom / Société (beta)</h1>
+      <h1>L’Annuaire Express</h1>
       <p class="hint">Entrez un <strong>nom de personne</strong> ou une <strong>raison sociale</strong>. Optionnel : une ville / code postal pour affiner.</p>
+      <p class="hint">🚨Lors de la première utilisation, il est fort probable que vous deviez autoriser ce site à afficher des fenêtres pop-up</p>
 
       <div class="grid g2">
         <div>
-          <label class="small">Nom / Raison sociale</label>
-          <input id="q" type="text" placeholder="ex. Jean Dupont • ex. Boulangerie Martin • " />
+          <label class="small" for="q">Nom / Raison sociale</label>
+          <input id="q" name="q" type="text" placeholder="ex. Jean Dupont • ex. Boulangerie Martin • " />
         </div>
         <div>
-          <label class="small">Ville / Code postal (optionnel)</label>
-          <input id="loc" type="text" placeholder="ex. Lyon • 75015 • Bordeaux" />
+          <label class="small" for="loc">Ville / Code postal (optionnel)</label>
+          <input id="loc" name="loc" type="text" placeholder="ex. Lyon • 75015 • Bordeaux" />
         </div>
       </div>
 
       <div class="row" style="margin-top:10px">
-        <label class="chip"><input type="radio" name="type" value="auto" checked> Auto</label>
-        <label class="chip"><input type="radio" name="type" value="personne"> Personne</label>
-        <label class="chip"><input type="radio" name="type" value="societe"> Société</label>
-        <label class="chip"><input id="stagger" type="checkbox" checked> Ouvrir progressivement (évite les bloqueurs)</label>
+        <label class="chip"><input id="stagger" type="checkbox" checked> Ouvrir progressivement les onglets (recommandé)</label>
       </div>
 
       <fieldset style="margin-top:14px">
         <legend>Sites à ouvrir</legend>
         <div class="sites">
           <label class="chip"><input class="site" type="checkbox" data-key="google" checked> Google</label>
-          <label class="chip"><input class="site" type="checkbox" data-key="maps"> Google Maps</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="maps"checked> Google Maps</label>
 
           <label class="chip"><input class="site" type="checkbox" data-key="pjPro" checked> PagesJaunes </label>
-          <label class="chip"><input class="site" type="checkbox" data-key="pjBlanches"> PagesBlanches </label>
+          <label class="chip"><input class="site" type="checkbox" data-key="pjBlanches"checked> PagesBlanches </label>
 
           <label class="chip"><input class="site" type="checkbox" data-key="societe" checked> Societe.com</label>
           <label class="chip"><input class="site" type="checkbox" data-key="pappers" checked> Pappers</label>
-          <label class="chip"><input class="site" type="checkbox" data-key="annuaireAdm"> Annuaire des Entreprises</label>
-          <label class="chip"><input class="site" type="checkbox" data-key="bodacc"> BODACC</label>
-
-          <label class="chip"><input class="site" type="checkbox" data-key="linkedin"> LinkedIn</label>
-          <label class="chip"><input class="site" type="checkbox" data-key="facebook"> Facebook</label>
-          <label class="chip"><input class="site" type="checkbox" data-key="twitter"> X / Twitter</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="annuaireAdm"checked> Annuaire des Entreprises</label>
+          <label class="chip"><input class="site" type="checkbox" data-key="bodacc"checked> BODACC</label>
         </div>
       </fieldset>
 
@@ -56,12 +50,23 @@
         <span class="small">Astuce : <kbd>Entrée</kbd> lance la recherche.</span>
       </div>
 
-      <div class="footer">
-        <p>Une suggestion ? envoi un mail à kevin.smagghe.dev@gmail.com 😉</p>
-      </div>
-    </div>
-  </div>
+     <div class="footer">
+  <p>Une suggestion ? Envoi un mail à <a href="mailto:kevin.smagghe.dev@gmail.com">kevin.smagghe.dev@gmail.com</a> 😉</p>
+  <p>Dernière MAJ le 19/08/2025</p>
+</div>
 
+<div class="legal">
+  <h2>Mentions légales & Confidentialité</h2>
+  <p><strong>Éditeur :</strong> Smagghe Kévin </p>
+  <p><strong>Email :</strong> <a href="mailto:kevin.smagghe.dev@gmail.com">kevin.smagghe.dev@gmail.com</a></p>
+  <p><strong>Hébergement :</strong> GitHub – GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.</p>
+
+  <p><strong>Objet :</strong> Cet outil permet de générer automatiquement des liens de recherche vers différents sites publics (Google, Pages Jaunes, Societe.com, etc.).</p>
+
+  <p><strong>Confidentialité :</strong> Les données saisies restent locales à votre navigateur. Aucune donnée n’est transmise ni stockée par ce site. Les recherches s’effectuent directement entre votre navigateur et les sites tiers. Aucun cookie de suivi ni mesure d’audience n’est utilisée.</p>
+
+  <p><strong>Responsabilité :</strong> L’éditeur ne peut être tenu responsable du contenu des sites tiers. L’usage doit respecter la législation en vigueur (vie privée, RGPD).</p>
+</div>
   <script src="script.js"></script>
 </body>
 </html>

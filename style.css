@@ -43,3 +43,25 @@ button{border:0;border-radius:12px;padding:12px 14px;cursor:pointer;font-weight:
 .small{font-size:12px;color:var(--muted)}
 .footer{margin-top:16px;color:var(--muted);font-size:12px}
 a{color:#9ddcff}
+
+.legal {
+  margin:40px auto;
+  padding:20px;
+  background:rgba(17,24,39,0.65);
+  border:1px solid var(--line);
+  border-radius:14px;
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.legal h2 {
+  font-size:16px;
+  margin-top:0;
+  margin-bottom:12px;
+  color:var(--txt);
+}
+
+.legal p {
+  margin:6px 0;
+}
