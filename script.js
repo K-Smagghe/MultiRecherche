@@ -21,7 +21,8 @@ const builders = {
     }&univers=pagesblanches`,
 
   // Registres / légal
-  societe: ({ q }) => `https://www.societe.com/cgi-bin/search?champs=${encodeURIComponent(q)}`,
+  societe: ({ q }) =>
+  `https://www.societe.com/cgi-bin/search?${new URLSearchParams({ champs: q }).toString()}`,
   pappers: ({ q }) => `https://www.pappers.fr/recherche?q=${encodeURIComponent(q)}`,
   // Interfaces pouvant changer → on passe par Google ciblé
   annuaireAdm: ({ q, loc }) =>
