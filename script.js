@@ -34,15 +34,15 @@ const builders = {
       "site:bodacc.fr " + q + (loc ? " " + loc : "")
     )}`,
 
-  // Réseaux
-  linkedin: ({ q, loc }) =>
+  // Réseaux (dans une futur maj)
+ /*  linkedin: ({ q, loc }) =>
     `https://www.linkedin.com/search/results/all/?keywords=${encodeURIComponent(
       q + (loc ? " " + loc : "")
     )}`,
   facebook: ({ q, loc }) =>
     `https://www.facebook.com/search/top?q=${encodeURIComponent(q + (loc ? " " + loc : ""))}`,
   twitter: ({ q, loc }) =>
-    `https://twitter.com/search?q=${encodeURIComponent(q + (loc ? " " + loc : ""))}&src=typed_query`,
+    `https://twitter.com/search?q=${encodeURIComponent(q + (loc ? " " + loc : ""))}&src=typed_query`, */
 };
 
 // ---------- Lecture du formulaire ----------
