@@ -24,7 +24,7 @@ const builders = {
   societe: ({ q }) =>
   `https://www.societe.com/cgi-bin/search?${new URLSearchParams({ champs: q }).toString()}`,
   pappers: ({ q }) => `https://www.pappers.fr/recherche?q=${encodeURIComponent(q)}`,
-  // Interfaces pouvant changer → on passe par Google ciblé
+ 
   annuaireAdm: ({ q, loc }) =>
     `https://www.google.com/search?q=${encodeURIComponent(
       "site:annuaire-entreprises.data.gouv.fr " + q + (loc ? " " + loc : "")
@@ -49,7 +49,6 @@ const builders = {
 function payload() {
   const q = $("#q").value.trim();
   const loc = $("#loc").value.trim();
-  const type = $$('input[name="type"]').find(r => r.checked)?.value || "auto";
   if (!q) {
     alert("Entrez un nom ou une raison sociale.");
     return null;
@@ -82,7 +81,7 @@ function openAll(urls) {
   urls.forEach((u, i) => setTimeout(() => window.open(u, "_blank", "noopener"), i * step));
 }
 
-// ---------- Wire-up des événements ----------
+// ---------- écouteur d'événements ----------
 function wireEvents() {
   $("#go").addEventListener("click", () => {
     const urls = buildUrls();
