@@ -1,27 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap');
-:root {
-  --bg: #0B0F14;          
-  --surface: #1F2937;   
-  --text: #F3F4F6;        
-  --text-dim: #9CA3AF;    
-  --accent: #D4AF37;      
-  --accent-strong: #FFD700; 
-  --radius: 14px;
-  --shadow: 0 12px 28px rgba(0,0,0,0.55);
-  --ring: 0 0 0 3px rgba(212,175,55,0.55);
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Lato:wght@300;400;700;900&family=Doppio+One&family=Baloo+Bhai+2:wght@600;800&display=swap');
 
+:root {
+  --bg: #333333;               
+  --surface: #3D3E3E;          
+  --text: #EDEDED;             
+  --text-dim: #A5A5A5;         
+  --accent: #F8E226;           
+  --accent-strong: #EE9252;    
+  --radius: 14px;
+  --shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  --ring: 0 0 0 3px rgba(248, 226, 38, 0.45);
+}
 
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; }
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: var(--bg);
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   color: var(--text);
-  -webkit-font-smoothing: antialiased;
+background:#3D3E3E ;
+  
+ /* Animation de fond (desactivé) 
+  background: linear-gradient(135deg, #3D3E3E, #58595B, #F8E226);
+  background-size: 300% 300%;
+  animation: premiumShift 20s ease infinite;
+  -webkit-font-smoothing: antialiased; */
 }
 
-
+@keyframes premiumShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 .wrap {
   max-width: 960px;
   margin: clamp(20px, 5vw, 60px) auto;
@@ -32,41 +42,44 @@ body {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: clamp(18px, 3vw, 36px);
-  border: 1px solid rgba(212,175,55,0.25);
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 
-h1, h2 {
-  margin: 0 0 14px;
-  line-height: 1.2;
+@font-face {
+  font-family: 'Gotham Black';
+  src: url('assets/fonts/Gotham\ Black.otf') format( 'opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
+
 h1 {
-  font-family: 'Cinzel', serif;
+  font-family: 'Gotham Black';
+  font-weight: 900;
+  text-transform: uppercase;
   text-align: center;
   font-size: clamp(28px, 3.6vw, 42px);
-  font-weight: 700;
-  color: var(--accent);
-  text-shadow: 0 2px 14px rgba(212,175,55,0.35);
+  
 }
-h2 {
+h2, legend {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
   text-align: center;
-  font-family: 'Cinzel', serif;
   font-size: clamp(20px, 2.2vw, 28px);
-  color: var(--accent);
+  
 }
 p { margin: 10px 0; }
 .small { font-size: 0.9rem; color: var(--text-dim); }
 
-
 .hint {
-  background: rgba(212,175,55,0.08);
-  border: 1px solid rgba(212,175,55,0.25);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: var(--radius);
   padding: 10px 14px;
   margin: 10px 0;
   color: var(--text);
 }
-
 
 label.small {
   display: block;
@@ -78,20 +91,19 @@ input[type="text"] {
   width: 100%;
   padding: 12px 14px;
   border-radius: var(--radius);
-  border: 1px solid rgba(212,175,55,0.3);
-  background: #111827;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: #222;
   color: var(--text);
   transition: border-color .2s, box-shadow .2s;
 }
 input[type="text"]::placeholder {
-  color: rgba(243,244,246,0.5);
+  color: rgba(237,237,237,0.5);
 }
 input[type="text"]:focus {
   border-color: var(--accent);
   box-shadow: var(--ring);
   outline: none;
 }
-
 
 input[type="checkbox"] { accent-color: var(--accent); }
 
@@ -102,8 +114,8 @@ input[type="checkbox"] { accent-color: var(--accent); }
   gap: 8px;
   padding: 8px 12px;
   border-radius: 999px;
-  background: #111827;
-  border: 1px solid rgba(212,175,55,0.25);
+  background: #2C2C2C;
+  border: 1px solid rgba(255,255,255,0.15);
   color: var(--text);
   cursor: pointer;
   transition: transform .1s, border-color .2s, box-shadow .2s;
@@ -111,7 +123,7 @@ input[type="checkbox"] { accent-color: var(--accent); }
 .chip:hover {
   transform: translateY(-1px);
   border-color: var(--accent);
-  box-shadow: 0 0 12px rgba(212,175,55,0.3);
+  box-shadow: 0 0 12px rgba(248,226,38,0.3);
 }
 .sites {
   display: flex;
@@ -127,8 +139,8 @@ input[type="checkbox"] { accent-color: var(--accent); }
   margin-top: 16px;
 }
 button {
-  font-family: inherit;
-  font-weight: 600;
+  font-family: 'Doppio One', sans-serif;
+  font-weight: 700;
   font-size: 1rem;
   border-radius: var(--radius);
   padding: 12px 18px;
@@ -138,13 +150,12 @@ button {
 }
 button.primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: #111;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.4);
-  box-shadow: 0 6px 20px rgba(212,175,55,0.4);
+  color: #333;
+  box-shadow: 0 6px 20px rgba(248,226,38,0.35);
 }
 button.primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 28px rgba(212,175,55,0.6);
+  box-shadow: 0 8px 28px rgba(248,226,38,0.5);
 }
 button.ghost {
   background: transparent;
@@ -152,22 +163,22 @@ button.ghost {
   color: var(--accent);
 }
 button.ghost:hover {
-  background: rgba(212,175,55,0.08);
-  box-shadow: 0 4px 14px rgba(212,175,55,0.3);
+  background: rgba(248,226,38,0.08);
+  box-shadow: 0 4px 14px rgba(248,226,38,0.25);
 }
 
 kbd {
-  background: #1F2937;
-  border: 1px solid rgba(212,175,55,0.35);
+  background: #2C2C2C;
+  border: 1px solid rgba(255,255,255,0.25);
   padding: 2px 6px;
   border-radius: 6px;
-  font-family: monospace;
+  font-family: 'Doppio One', sans-serif;
   color: var(--accent);
 }
 a {
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px dashed rgba(212,175,55,0.5);
+  border-bottom: 1px dashed rgba(248,226,38,0.5);
 }
 a:hover {
   color: var(--accent-strong);
@@ -175,8 +186,8 @@ a:hover {
 }
 
 .footer, .legal {
-  background: #111827;
-  border: 1px solid rgba(212,175,55,0.2);
+  background: #2C2C2C;
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: var(--radius);
   padding: 14px;
   margin-top: 20px;
@@ -185,7 +196,6 @@ a:hover {
   margin: 6px 0;
   color: var(--text-dim);
 }
-
 
 .grid {
   display: grid;
@@ -209,20 +219,4 @@ a:hover {
   .grid.g2 { grid-template-columns: 1fr; }
   .btns { flex-direction: column; }
   button { width: 100%; }
-}
-
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  color: var(--text);
-  background: linear-gradient(135deg, #0B0F14, #1F2937, #D4AF37);
-  background-size: 300% 300%;
-  animation: premiumShift 20s ease infinite;
-  -webkit-font-smoothing: antialiased;
-}
-
-
-@keyframes premiumShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
