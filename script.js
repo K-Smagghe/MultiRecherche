@@ -83,7 +83,7 @@ function openAll(urls) {
     const randomStep = Math.floor(Math.random() * (1500 - 800 + 1)) + 800;
     
     setTimeout(() => {
-      window.open(u, "_blank", "noopener");
+      window.open(u, "_blank", "noopener,noreferrer" );
     }, cumulativeDelay);
 
     
