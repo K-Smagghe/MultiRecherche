@@ -76,9 +76,19 @@ function buildUrls() {
 
 // ---------- Ouverture des onglets ----------
 function openAll(urls) {
-  const progressive = $("#stagger").checked;
-  const step = progressive ? 220 : 0; // léger délai pour éviter certains bloqueurs
-  urls.forEach((u, i) => setTimeout(() => window.open(u, "_blank", "noopener"), i * step));
+  let cumulativeDelay = 0;
+
+  urls.forEach((u) => {
+    
+    const randomStep = Math.floor(Math.random() * (1500 - 800 + 1)) + 800;
+    
+    setTimeout(() => {
+      window.open(u, "_blank", "noopener");
+    }, cumulativeDelay);
+
+    
+    cumulativeDelay += randomStep;
+  });
 }
 
 // ---------- écouteur d'événements ----------
