@@ -80,7 +80,7 @@ function openAll(urls) {
 
   urls.forEach((u) => {
     
-    const randomStep = Math.floor(Math.random() * (1500 - 800 + 1)) + 800;
+    const randomStep = Math.floor(Math.random() * (4000 - 2000 + 1)) + 2000;
     
     setTimeout(() => {
       window.open(u, "_blank", "noopener,noreferrer" );
